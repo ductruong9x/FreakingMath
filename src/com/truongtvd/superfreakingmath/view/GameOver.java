@@ -3,6 +3,7 @@ package com.truongtvd.superfreakingmath.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +19,8 @@ import com.truongtvd.superfreakingmath.utils.UIUtils;
 
 public class GameOver extends Activity {
     ImageView newGameBtn;
+    private Typeface font_number;
+    private TextView game_over,news,best;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -28,11 +31,22 @@ public class GameOver extends Activity {
         UIUtils.setOrientationLockPortrait(this);
 
         setContentView(R.layout.gameover);
+        font_number=Typeface.createFromAsset(getAssets(),
+				"fonts/number.ttf");
 
         int highScore = getIntent().getIntExtra("score", 0);
 
         TextView currentScoreTxt = (TextView) findViewById(R.id.curent_score);
         TextView bestScoreTxt  = (TextView) findViewById(R.id.best_score);
+        game_over=(TextView)findViewById(R.id.game_over);
+        news=(TextView)findViewById(R.id.new_s);
+        best=(TextView)findViewById(R.id.best_s);
+        game_over.setTypeface(font_number);
+        news.setTypeface(font_number);
+        best.setTypeface(font_number);
+        
+        currentScoreTxt.setTypeface(font_number);
+        bestScoreTxt.setTypeface(font_number);
         newGameBtn = (ImageView) findViewById(R.id.play_btn);
 
         currentScoreTxt.setText(highScore + "");

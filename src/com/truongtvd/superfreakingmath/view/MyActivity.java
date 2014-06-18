@@ -5,6 +5,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,8 +17,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.analytics.tracking.android.EasyTracker;
-import com.startapp.android.publish.StartAppAd;
 import com.truongtvd.superfreakingmath.R;
 import com.truongtvd.superfreakingmath.config.BaseApplication;
 import com.truongtvd.superfreakingmath.config.PrefStore;
@@ -37,12 +36,8 @@ public class MyActivity extends Activity {
     TextView highScoreTxt;
     RelativeLayout parentLayout;
     AtomicBoolean isEnd;
+    private Typeface font_number;
 
-    /** StartApp ads **/
-    public StartAppAd startAppAd = new StartAppAd(this);
-    /**
-     * Called when the activity is first created.
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +50,9 @@ public class MyActivity extends Activity {
 
         setContentView(R.layout.main);
         isEnd = new AtomicBoolean(false);
+        font_number=Typeface.createFromAsset(getAssets(),
+				"fonts/number.ttf");
 
-        /** StartApp **/
-        StartAppAd.init(this, "101007880", "204108768");
 
 
         firstTxt = (TextView) findViewById(R.id.first);
@@ -65,6 +60,11 @@ public class MyActivity extends Activity {
         resultTxt = (TextView) findViewById(R.id.result);
         operatorTxt = (TextView) findViewById(R.id.operator);
         highScoreTxt = (TextView) findViewById(R.id.highscore);
+        firstTxt.setTypeface(font_number);
+        secondTxt.setTypeface(font_number);
+        resultTxt.setTypeface(font_number);
+        operatorTxt.setTypeface(font_number);
+        highScoreTxt.setTypeface(font_number);
         parentLayout = (RelativeLayout) findViewById(R.id.parentLayout);
 
         parentLayout.setBackgroundColor(Color.parseColor(Helper.getRandomNiceColor()));
@@ -209,18 +209,7 @@ public class MyActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
+        super.onBackPressed();
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        EasyTracker.getInstance(this).activityStart(this);  // Add this method.
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        EasyTracker.getInstance(this).activityStop(this);  // Add this method.
-    }
 }
