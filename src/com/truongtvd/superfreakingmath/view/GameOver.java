@@ -12,6 +12,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.truongtvd.superfreakingmath.R;
 import com.truongtvd.superfreakingmath.config.BaseApplication;
 import com.truongtvd.superfreakingmath.config.PrefStore;
@@ -21,6 +23,8 @@ public class GameOver extends Activity {
     ImageView newGameBtn;
     private Typeface font_number;
     private TextView game_over,news,best;
+    private InterstitialAd interstitialAd;
+    private String UNIT_ID="ca-app-pub-1857950562418699/4827625564";
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -31,6 +35,9 @@ public class GameOver extends Activity {
         UIUtils.setOrientationLockPortrait(this);
 
         setContentView(R.layout.gameover);
+        interstitialAd=new InterstitialAd(this);
+        interstitialAd.setAdUnitId(UNIT_ID);
+        interstitialAd.loadAd(new AdRequest.Builder().build());
         font_number=Typeface.createFromAsset(getAssets(),
 				"fonts/number.ttf");
 
@@ -80,6 +87,7 @@ public class GameOver extends Activity {
 
     @Override
     public void onBackPressed() {
+    	interstitialAd.show();
         super.onBackPressed();
     }
 }

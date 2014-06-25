@@ -17,6 +17,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.truongtvd.superfreakingmath.R;
 import com.truongtvd.superfreakingmath.config.BaseApplication;
 import com.truongtvd.superfreakingmath.config.PrefStore;
@@ -37,6 +40,9 @@ public class MyActivity extends Activity {
     RelativeLayout parentLayout;
     AtomicBoolean isEnd;
     private Typeface font_number;
+    private AdView adView;
+    private InterstitialAd interstitialAd;
+    private String UNIT_ID="ca-app-pub-1857950562418699/4827625564";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,14 @@ public class MyActivity extends Activity {
         UIUtils.setOrientationLockPortrait(this);
 
         setContentView(R.layout.main);
+        
+        adView=(AdView)findViewById(R.id.ad);
+        adView.loadAd(new AdRequest.Builder().build());
+        interstitialAd=new InterstitialAd(this);
+        interstitialAd.setAdUnitId(UNIT_ID);
+        interstitialAd.loadAd(new AdRequest.Builder().build());
+        
+        
         isEnd = new AtomicBoolean(false);
         font_number=Typeface.createFromAsset(getAssets(),
 				"fonts/number.ttf");
@@ -209,6 +223,7 @@ public class MyActivity extends Activity {
 
     @Override
     public void onBackPressed() {
+    	interstitialAd.show();
         super.onBackPressed();
     }
 
