@@ -1,4 +1,4 @@
-package com.truongtvd.superfreakingmath.utils;
+package com.appfree.superfreakingmath.utils;
 
 import android.view.View;
 import android.view.ViewGroup;

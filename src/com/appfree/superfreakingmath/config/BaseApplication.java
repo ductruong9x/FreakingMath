@@ -1,11 +1,11 @@
-package com.truongtvd.superfreakingmath.config;
+package com.appfree.superfreakingmath.config;
 
 import android.app.Application;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.SoundPool;
 
-import com.truongtvd.superfreakingmath.R;
+import com.appfree.superfreakingmath.R;
 
 public class BaseApplication extends Application {
 

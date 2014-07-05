@@ -1,4 +1,4 @@
-package com.truongtvd.superfreakingmath.utils;
+package com.appfree.superfreakingmath.utils;
 
 import android.content.Context;
 import android.graphics.Point;
@@ -7,7 +7,7 @@ import android.os.Build;
 import android.view.Display;
 import android.view.WindowManager;
 
-import com.truongtvd.superfreakingmath.config.BaseApplication;
+import com.appfree.superfreakingmath.config.BaseApplication;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.truongtvd.superfreakingmath.config;
+package com.appfree.superfreakingmath.config;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -1,4 +1,4 @@
-package com.truongtvd.superfreakingmath.utils;
+package com.appfree.superfreakingmath.utils;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

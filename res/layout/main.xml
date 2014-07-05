@@ -113,13 +113,11 @@
             android:background="@drawable/wrong_button" />
     </LinearLayout>
 
-    <com.google.android.gms.ads.AdView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/ad"
+    <com.startapp.android.publish.banner.Banner
+        android:id="@+id/startAppBanner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:adSize="SMART_BANNER"
-        app:adUnitId="ca-app-pub-1857950562418699/9397425968" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

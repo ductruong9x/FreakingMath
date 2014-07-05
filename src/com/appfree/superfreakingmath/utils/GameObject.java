@@ -1,4 +1,4 @@
-package com.truongtvd.superfreakingmath.utils;
+package com.appfree.superfreakingmath.utils;
 
 /**
  * Created by ThaoHQSE60963 on 4/2/14.
